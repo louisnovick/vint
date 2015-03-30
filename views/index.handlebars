@@ -1,0 +1,57 @@
+<div>
+      {{#if userName}}
+            <h4 class="welcometext">
+              Welcome, <strong> {{userName}} </strong>
+            </h4>
+            <ul class="nav navbar-nav">
+              <li style="float: none;">
+                <a href="/signout" class="btn-success">Log Out</a>
+              </li>
+          {{else}}
+            <ul class="nav navbar-nav">
+              <li><a href="/signup" class="btn-success">Sign Up</a></li>
+              <li><a href="/signin" class="btn-success">Sign In</a></li>
+          {{/if}}
+            </ul>
+  <form method="post" action="/images" enctype="multipart/form-data">
+    <div class="mainform">
+      <div class="col-md-12">
+        <div class="col-md-12">
+            <div><input id="upfile" type="file" name="file" value="Choose Image" required="true" /></div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <label class="text-center col-md-12" for="title">
+          Give it a name
+        </label>
+        <div class="col-md-12">
+          <input type="text" name="title" required="true">
+        </div>
+      </div>
+      <div class=" col-md-12">
+        <label class="text-center col-md-12" for="description">
+          Describe it
+        </label>
+        <div class="col-md-12">
+          <textarea name="description" rows="3" maxlength="100"></textarea>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-12">
+            <button type="submit" id="login-btn" class-"btn btn-success" type="button"><i class="fa fa-cloud-upload "></i>Upload Image and Vintify</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div>
+      <h3 class="recenttitle">
+        Recent Images
+      </h3>
+    </div>
+    <div>
+      {{#each images}}
+        <div class="text-center col-md-4" style="padding-bottom:1em;"><a href="/images/{{ uniqueID }}"><img src="/public/upload/{{filename}}" alt="{{title}}" class="vintage img-thumbnail"></a></div>
+        {{/each}}
+      </div>
+    </div>
