@@ -11,3 +11,5 @@ To run:
 `mongod` in one terminal tab
 
 `node server` in another terminal tab
+
+Open http://localhost:3000 in your favorite browser.  Enjoy!
